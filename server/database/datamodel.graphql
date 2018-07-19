@@ -1,17 +1,57 @@
-type Post {
+#type Post {
+#  id: ID! @unique
+#  createdAt: DateTime!
+#  updatedAt: DateTime!
+#  isPublished: Boolean! @default(value: "false")
+#  title: String!
+#  text: String!
+#  author: User!
+#}
+#
+#type User {
+#  id: ID! @unique
+#  email: String! @unique
+#  password: String!
+#  name: String!
+#  posts: [Post!]!
+#}
+
+// Java's project
+type Expense {
   id: ID! @unique
   createdAt: DateTime!
   updatedAt: DateTime!
-  isPublished: Boolean! @default(value: "false")
-  title: String!
-  text: String!
+  exp_name: String
+  exp_amt: Float
   author: User!
 }
 
+//Jordan's project
+type Category {
+  id: ID! @unique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  category_name: String! @unique
+  expenses: [Expense!]!
+  author: User!
+}
+
+//Mike's project
+type Budget {
+  id: ID! @unique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  label: String!
+  notes: String!
+  categorys: [Category!]!
+  author: User!
+}
+
+//Zach's project
 type User {
   id: ID! @unique
   email: String! @unique
   password: String!
   name: String!
-  posts: [Post!]!
+  budgets: [Budget!]!
 }

@@ -1,21 +1,71 @@
+#mutation {
+#  createUser(data: {
+#    email: "developer@example.com"
+#    password: "$2a$10$hACwQ5/HQI6FhbIISOUVeusy3sKyUDhSq36fF5d/54aAdiygJPFzm" # plaintext password: "nooneknows"
+#    name: "Sarah"
+#    posts: {
+#      create: [{
+#        title: "Hello World 👋"
+#        text: "I like turtles."
+#        isPublished: true
+#      }, {
+#        title: "Join us at GraphQL Europe 🇪🇺 "
+#        text: "Get a 10%-discount with this promo code on graphql-europe.org: gql-boilerplates"
+#        isPublished: true
+#      }, {
+#        title: "Solving world hunger"
+#        text: "This is a draft..."
+#        isPublished: false
+#      }]
+#    }
+#  }) {
+#    id
+#  }
+#}
+
 mutation {
   createUser(data: {
-    email: "developer@example.com"
+    email: "team@unicorn.com"
     password: "$2a$10$hACwQ5/HQI6FhbIISOUVeusy3sKyUDhSq36fF5d/54aAdiygJPFzm" # plaintext password: "nooneknows"
-    name: "Sarah"
-    posts: {
+    name: "Unicorn"
+    budgets: {
       create: [{
-        title: "Hello World 👋"
-        text: "I like turtles."
-        isPublished: true
-      }, {
-        title: "Join us at GraphQL Europe 🇪🇺 "
-        text: "Get a 10%-discount with this promo code on graphql-europe.org: gql-boilerplates"
-        isPublished: true
-      }, {
-        title: "Solving world hunger"
-        text: "This is a draft..."
-        isPublished: false
+        label: "Group Project"
+        notes: "For funding the teams success!"
+        categorys: {
+          create: [{
+            category_name: "Party Supplies"
+            expenses: {
+              create: [{
+                exp_name: "Soda"
+                exp_amt: 20.00
+              }]
+              create: [{
+                exp_name: "Pizza"
+                exp_amt: 30.00
+              }]
+            }
+          }]
+        }
+      }]
+      create: [{
+        label: "Summer Trip"
+        notes: "Vacation!"
+        categorys: {
+          create: [{
+            category_name: "Supplies"
+            expenses: {
+              create: [{
+                exp_name: "Food"
+                exp_amt: 100.00
+              }]
+              create: [{
+                exp_name: "Gas"
+                exp_amt: 300.00
+              }]
+            }
+          }]
+        }
       }]
     }
   }) {
